@@ -1,12 +1,14 @@
 /* tslint:disable max-line-length */
 
-import { Injectable } from '@angular/core';
+import { Injectable, VERSION } from '@angular/core';
 
 import { SkyDemoPageCodeFile } from './demo-page-code-file';
 
 @Injectable()
 export class SkyDemoPagePlunkerService {
+
   public getFiles(codeFiles: SkyDemoPageCodeFile[]): any[] {
+
     let declarations: string[] = [];
     let bootstrapSelectors: string[] = [];
     let entryComponents: string[] = [];
@@ -46,7 +48,9 @@ export class SkyDemoPagePlunkerService {
       {
         name: 'config.js',
         content:
-`System.config({
+`
+var angularVersion = '@${VERSION.full}';
+System.config({
   //use typescript for compilation
   transpiler: 'typescript',
   //typescript compiler options
@@ -61,17 +65,17 @@ export class SkyDemoPagePlunkerService {
 
     'app': '.',
 
-    '@angular/core': 'npm:@angular/core@4.2.5/bundles/core.umd.js',
-    '@angular/common': 'npm:@angular/common@4.2.5/bundles/common.umd.js',
-    '@angular/compiler': 'npm:@angular/compiler@4.2.5/bundles/compiler.umd.js',
-    '@angular/platform-browser': 'npm:@angular/platform-browser@4.2.5/bundles/platform-browser.umd.js',
-    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@4.2.5/bundles/platform-browser-dynamic.umd.js',
-    '@angular/http': 'npm:@angular/http@4.2.5/bundles/http.umd.js',
-    '@angular/router': 'npm:@angular/router@4.2.5/bundles/router.umd.js',
-    '@angular/forms': 'npm:@angular/forms@4.2.5/bundles/forms.umd.js',
-    '@angular/animations': 'npm:@angular/animations@4.2.5/bundles/animations.umd.js',
-    '@angular/platform-browser/animations': 'npm:@angular/platform-browser@4.2.5/bundles/platform-browser-animations.umd.js',
-    '@angular/animations/browser': 'npm:@angular/animations@4.2.5/bundles/animations-browser.umd.js',
+    '@angular/core': 'npm:@angular/core' + angularVersion + '/bundles/core.umd.js',
+    '@angular/common': 'npm:@angular/common' + angularVersion + '/bundles/common.umd.js',
+    '@angular/compiler': 'npm:@angular/compiler' + angularVersion + '/bundles/compiler.umd.js',
+    '@angular/platform-browser': 'npm:@angular/platform-browser' + angularVersion + '/bundles/platform-browser.umd.js',
+    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic' + angularVersion + '/bundles/platform-browser-dynamic.umd.js',
+    '@angular/http': 'npm:@angular/http' + angularVersion + '/bundles/http.umd.js',
+    '@angular/router': 'npm:@angular/router' + angularVersion + '/bundles/router.umd.js',
+    '@angular/forms': 'npm:@angular/forms' + angularVersion + '/bundles/forms.umd.js',
+    '@angular/animations': 'npm:@angular/animations' + angularVersion + '/bundles/animations.umd.js',
+    '@angular/platform-browser/animations': 'npm:@angular/platform-browser' + angularVersion + '/bundles/platform-browser-animations.umd.js',
+    '@angular/animations/browser': 'npm:@angular/animations' + angularVersion + '/bundles/animations-browser.umd.js',
     'tslib': 'npm:tslib@1.6.1',
 
     'rxjs': 'npm:rxjs',
